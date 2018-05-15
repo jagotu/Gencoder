@@ -1,0 +1,118 @@
+One sample document is provided in sample/sample.txt
+The following steps will use it to provide a demonstration
+of gencoder's capabilities:
+
+1. Load the file in gencoder:
+   `./gencoder sample/sample.txt`
+   
+   If you are feeling fancy, you can even try to load from
+   the stdin:
+   `cat sample/sample.txt | ./gencoder -`
+
+   The program will present you with its UI and a preview
+   of the document you are working with.
+
+2. Check the bottom-left corner. It mentions the type of
+   the document you are currently working on.
+
+   If you loaded the file directly, gencoder recognized it
+   as an UTF-8 file, and automatically started in 'unicode'
+   mode, where the data is interpreted as text.
+
+   If you piped the file to gencoder, it stayed on the safe
+   side and you are in 'octet' mode, where the data is just
+   a bunch of bytes without any meaning.
+
+3. Let's explore what gencoder is all about: encoding and
+   decoding. Start by pressing F4.
+   As you can see, a small menu opened near the bottom of
+   the screen. This menu lists all decoders available for
+   the current document type.
+
+   To use the decoder, simply press the number key written
+   next to the decoder name.
+
+   If you started from stdin, use the 'UTF-8' decoder and
+   notice how the preview and the document type in the lower
+   left corner changed.
+
+   Now use the Base64 decoder.
+
+   As you can see, decoding Base64 strings resulted in yet
+   another octet stream.
+
+   Use the UTF-8 decoder once again to get to the text.
+
+4. You may recognized the string as something that you
+   would expect in an URL. This is actually called the
+   'x-www-form-urlencoded' serialization and it is a 
+   very basic format for serializating HTML forms.
+
+   Now, try decoding this text using the Base64 decoder.
+   Notice that the conversion failed, but after pressing
+   a key, your original document stayed intact.
+
+   Let's select the correct decoder this time, so use
+   'x-www-form-urlencoded'.
+
+   We now have the third (and last) type of document
+   available, 'multipart'. That is actually a set
+   of documents identifed by their name. Try playing
+   with the up/down arrows and watch as the
+   highlighted line moves around.
+
+   Now, you see the "arg_with_a_very_long..."? 
+   Let's check its value. Use the arrows so it's
+   highlighted and press ENTER.
+
+   You can now see that the value is 42.
+
+   Look in the bottom-left corner. The small '<' there
+   shows up every time you can go back. Let's try that
+   by pressing BACKSPACE.
+
+   We are now back in the multipart document.
+
+5. Let's explore another powerful feature of gencoder:
+   editing. Gencoder doesn't try to reinvent the vim,
+   so it just calls whatever you have set in the EDITOR
+   variable.
+   
+   Let's say we want to edit the value of 'whatever' to
+   'no'. Scroll to 'whatever', press ENTER and then F1.
+
+   Unless something went wrong, you are in your favorite
+   editor. Change the 'yes' to 'no' and then save and exit.
+   
+   Notice that your changes are now automatically in
+   gencoder. Press BACKSPACE to return back to the multipart
+   document and notice the changes are there as well.
+
+6. Unless you are in a multipart document, you can
+   save what you see to a file.
+
+   Select arg1, and press the F2 key. Feel free to save
+   wherever you want, but think twice before overwriting
+   our provided sample ;)
+   
+   Return back to the multipart document.
+
+7. For the last feature we want to show you, first select
+   arg2_base64, decode it as base64, then as utf-8 and
+   edit it to read "nazdar" instead of "ahoj". Take this
+   opportunity to repeat what you already learned.
+   
+   Now, let's repeat what you've done: We decoded a base64
+   string and then modified two of the x-www-form-url-encoded
+   arguments, one of which was base64 encoded itself.
+
+   So, now we want to do this all backwards so that we get
+   the original message format we started with, but with
+   our modified data. Fortunately, REENC is just that,
+   so press F3.
+
+   Feel free to try to decode it all again from here to 
+   see your values are really there or to save the file.
+
+Hope you had fun and this concludes the tutorial :)
+

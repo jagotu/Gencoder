@@ -1,0 +1,9 @@
+There are five main parts to this application:
+* main.cpp (which contains the basic application logic)
+* gui.cpp (which does gui and is absolutely ugly
+  because ncurses has an abysmal C API)
+* Document (document.h & document.cpp)
+* Transforms (core defined in transform.h, individual
+  transformations defined in transforms folder)
+* UTF-8 (the public domain utf8.h & utf8 folder
+  and my own utf8_charclass.h)
