@@ -7,6 +7,7 @@
 #include <curses.h>
 #include <clocale>
 
+
 #define ctrl(x)           ((x) & 0x1f)
 
 namespace gui
@@ -294,6 +295,7 @@ namespace gui
 				break;
 			case '\b':
 			case KEY_BACKSPACE:
+			case 'b':
 				try {
 					ret_to_parent();
 				}
@@ -340,7 +342,6 @@ namespace gui
 					count++;
 				}
 			}
-			
 
 			currmenuw = newwin(count, maxlength + 4, height - count - 1, menus_position[opened_menu]);
 			wattron(currmenuw, A_REVERSE);
@@ -361,11 +362,7 @@ namespace gui
 				}
 
 			}
-			if (count != 0)
-			{
-				wrefresh(currmenuw);
-			}
-			
+			wrefresh(currmenuw);
 		}
 	}
 

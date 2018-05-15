@@ -30,7 +30,7 @@ for a small tour of the features.
 * *F5* - Open menu of encoders
 * *0-9* - Select de/encoder from menu
 * *ENTER* - Select a part of a multipart document
-* *BACKSPACE* - Go back one level (to parent multipart document)
+* *BACKSPACE or b* - Go back one level (to parent multipart document)
 
 ## License
 
