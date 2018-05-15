@@ -1,7 +1,6 @@
 You need to have libncursesw installed.
 
 Just `make` should be enough on most computers.
-It definitely is in MFF's lab.
 
 The make process creates a "gencoder" binary in
 the root directory.
@@ -9,5 +8,5 @@ the root directory.
 It turns out there can be two modes you can
 compile ncurses in: one of them requires libtinfow,
 one of them doesn't. If the app doesn't compile on your
-computer, try removing "-ltinfow" from LDLIBS in the
+computer, try adding "-ltinfow" to LDLIBS in the
 Makefile.
